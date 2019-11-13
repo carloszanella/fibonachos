@@ -14,7 +14,7 @@ after_success:
   - docker build -t czanella/fibo-server ./server
   - docker build -t czanella/fibo-worker ./worker
   # LOG TO DOCKER HUB
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password--stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # PUSH TO DOCKER HUB
   - docker push czanella/fibo-client
   - docker push czanella/fibo-nginx
