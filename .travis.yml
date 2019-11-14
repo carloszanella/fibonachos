@@ -20,3 +20,15 @@ after_success:
   - docker push czanella/fibo-nginx
   - docker push czanella/fibo-server
   - docker push czanella/fibo-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-1
+  app: fibonacci-docker
+  env: FibonacciDocker-env
+  bucket_name: elasticbeanstalk-us-east-1-898151676259
+  bucket_path: fibonacci-docker
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
